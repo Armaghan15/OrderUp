@@ -1,0 +1,80 @@
+.navbar {
+  background-color: #FC453F;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+.navbar h1 {
+  font-size: 30px;
+  margin-left: -460px;
+}
+
+.button {
+  background-color: #FFD700;
+  color: #434340;
+  border: 1px solid #FFD700;
+  border-radius: 8px;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: .4s ease-in-out;
+  cursor: pointer;
+  display:inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: -400px;
+  height: 55px;
+}
+
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.207);
+}
+
+.button i {
+  margin-right: 6px;
+}
+
+
+.button .CartAmount {
+  margin-left: 10px;
+  background-color: #434340;
+  border-radius: 2px;
+  color: #FFD700;
+  padding-left: 10px;
+  padding-right: 12px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align: center;
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+  .navbar h1 {
+    margin-left: -50px;
+  }
+
+  .button {
+    margin-right: -50px;
+  }
+}
+
+
+
+@media only screen and (min-width: 480px) {
+  .navbar h1 {
+    margin-left: -80px;
+  }
+
+  .button {
+    margin-right: -80px;
+  }
+} 

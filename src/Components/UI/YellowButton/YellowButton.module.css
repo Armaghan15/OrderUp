@@ -1,0 +1,21 @@
+.YellowButton {
+  background-color: #FFD700;
+  color: #434340;
+  border: 1px solid #FFD700;
+  border-radius: 8px;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  transition: .4s ease-in-out;
+  cursor: pointer;
+  display:inline-block;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  width: 120px;
+}
+
+.YellowButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
+  color: #161616;
+}

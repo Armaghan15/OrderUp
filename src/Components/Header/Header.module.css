@@ -1,0 +1,46 @@
+.Header {
+  display: flex;
+  height: 100vh;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.TextContainer h1 {
+  font-size: 50px;
+  color: #FC453F;
+  font-weight: 700;
+}
+
+.TextContainer p {
+  color: #FC453F;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: left;
+  width: 350px;
+}
+
+
+.TextContainer .button {
+  font-weight: 700;
+}
+
+
+/* Tablets and Under */
+@media (max-width: 768px) {
+  .Header {
+    flex-direction: column;
+  }
+
+  .TextContainer h1 {
+    font-size: 40px;
+  }
+
+  .TextContainer p {
+    font-size: 15px;
+  }
+
+  .ImageContainer {
+    display: none;
+  }
+}

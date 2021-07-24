@@ -1,0 +1,38 @@
+.meal {
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+  padding-right: 40px;
+  padding-left: 40px;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+.meal .MealDetails .description {
+  font-style: italic;
+}
+
+
+.meal .MealDetails .price {
+  color: #FC453F;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .meal {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
