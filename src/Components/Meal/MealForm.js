@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 
 // Import for Style
 import classes from "./MealForm.module.css";
@@ -9,13 +9,15 @@ import Input from "../UI/Input/Input";
 
 const MealForm = (props) => {
   const [amountIsValid, setAmountIsValid] = useState(true);
+  const [enteredAmount, setEnteredAmount] = useState("1");
 
-  const amountInputRef = useRef();
+  const inputChangeHandler = (event) => {
+    setEnteredAmount(event.target.value);
+  };
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
 
-    const enteredAmount = amountInputRef.current.value;
     const enteredAmountNumber = +enteredAmount;
 
     if (
@@ -35,7 +37,6 @@ const MealForm = (props) => {
       <div className={classes.amount}>
         <form onSubmit={formSubmitHandler}>
           <Input
-            ref={amountInputRef}
             label="Amount"
             input={{
               id: "amount_" + props.id,
@@ -44,6 +45,8 @@ const MealForm = (props) => {
               max: "10",
               step: "1",
               defaultValue: "1",
+              value: enteredAmount,
+              onChange: inputChangeHandler,
             }}
           />
           <YellowButton className="submitButton" content="+ Add" />

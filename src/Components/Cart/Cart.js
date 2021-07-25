@@ -10,28 +10,17 @@ import CartContext from "../../store/cart-context";
 const Cart = (props) => {
   const cart = useContext(CartContext);
 
-  // const CART_ITEMS = [
-  // {
-  //   id: "c1",
-  //   name: "Sushi",
-  //   amount: 2,
-  //   price: 22.99,
-  // },
+  const hasItems = cart.items.length > 0;
 
-  // {
-  //   id: "c2",
-  //   name: "Green Bowl",
-  //   amount: 1,
-  //   price: 18.99,
-  // },
+  // Method for Adding Items to Cart with + button
+  const cartItemAddHandler = (CartItem) => {
+    cart.addItem({ ...CartItem, amount: 1 });
+  };
 
-  // {
-  //   id: "c3",
-  //   name: "Barbecue Burger",
-  //   amount: 1,
-  //   price: 12.99,
-  // },
-  // ];
+  // Method for Removing Items to Cart with - button
+  const cartItemRemoveHanlder = (id) => {
+    cart.removeItem(id);
+  };
 
   const CartItems = (
     <ul className={classes["cart-items"]}>
@@ -41,6 +30,20 @@ const Cart = (props) => {
             <li>{CartItem.name}</li>
             <li className={classes["cart-item-price"]}>${CartItem.price}</li>
             <li className={classes["cart-item-amount"]}>{CartItem.amount}</li>
+            <div className={classes["editing-buttons"]}>
+              <button
+                onClick={cartItemAddHandler.bind(null, CartItem)}
+                className={classes["increase-button"]}
+              >
+                +
+              </button>
+              <button
+                onClick={cartItemRemoveHanlder.bind(null, CartItem.id)}
+                className={classes["decrease-button"]}
+              >
+                -
+              </button>
+            </div>
           </div>
           <hr className={classes["cart-item-underline"]} />
         </div>
@@ -54,18 +57,22 @@ const Cart = (props) => {
         <span>Meal</span>
         <span>Price</span>
         <span>Quantity</span>
+        <span>Edit</span>
       </div>
       {CartItems}
       <div className={classes.total}>
         <span>Total:</span>
-        <span className={classes.totalPrice}>${cart.totalPrice}</span>
+        <span className={classes.totalPrice}>
+          ${cart.totalPrice.toFixed(2)}
+        </span>
       </div>
 
       <div className={classes.actions}>
         <button onClick={props.onCloseCart} className={classes["button-alt"]}>
           Close
         </button>
-        <button className={classes.button}>Order</button>
+
+        {hasItems && <button className={classes.button}>Order</button>}
       </div>
     </Modal>
   );
